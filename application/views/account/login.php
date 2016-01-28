@@ -7,6 +7,7 @@
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"></meta>
 
         <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css"></link>
+        <link rel="stylesheet" href="../assets/plugins/hovercss/hover.css"></link>
     </head>
     <style>
         @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic);
@@ -91,7 +92,7 @@
                 </div>
                 <div class="row">
                     <div class="col-xs-12">
-                        <button type="submit" class="btn btn-primary btn-block btn-flat">Iniciar Sessão</button>
+                        <button type="submit" class="btn btn-primary btn-block btn-flat hvr-sweep-to-top">Iniciar Sessão</button>
                     </div><!-- /.col -->
                 </div>
                 </form>

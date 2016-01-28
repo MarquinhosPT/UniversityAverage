@@ -48,21 +48,24 @@
                         <div class="box-body">
                             <div class="form-group">
                                 <div class="col-sm-12">
-                                    <input type="text" class="form-control" placeholder="E-mail" disabled />
+                                    <input type="text" class="form-control" name="Email" disabled placeholder="E-mail" value="<?php echo $email ?>"/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-12">
-                                    <input type="password" class="form-control" placeholder="Palavra-passe antiga">
+                                    <input type="password" class="form-control" name="oldPassword" placeholder="Palavra-passe antiga">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-12">
-                                    <input type="password" class="form-control" placeholder="Nova Palavra-passe">
+                                    <input type="password" class="form-control" name="newPassword" placeholder="Nova Palavra-passe">
                                 </div>
                             </div>
                         </div>
                         <!-- /.box-body -->
+                        <div class="box-footer">
+                            <button type="submit" class="btn btn-info btn-flat pull-right hvr-sweep-to-top" id="bt-info-conta">Guardar</button>
+                        </div>
                     </form>
                 </div>
 
@@ -72,30 +75,35 @@
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
-                    <form class="form-horizontal">
-                        <div class="box-body">
-                            <div class="form-group">
-                                <div class="col-sm-12">
-                                    <input type="text" class="form-control" id="inputEmail3" placeholder="Número Mecanográfico" disabled />
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-12">
-                                    <input type="text" class="form-control" id="inputPassword3" placeholder="Nome">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-12">
-                                    <input type="text" class="form-control" id="inputPassword3" placeholder="Data de Nascimento">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-12">
-                                    <input type="text" class="form-control" id="inputPassword3" placeholder="Contacto">
-                                </div>
+                    <!--<form class="form-horizontal">-->
+                    <?php $attributes = array('class' => 'form-horizontal');
+                    echo form_open('Account/updateProfile', $attributes); ?>
+                    <div class="box-body">
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control" name="NumeroMecanografico" placeholder="Número Mecanográfico" disabled value="<?php echo $numeromecanografico ?>"/>
                             </div>
                         </div>
-                        <!-- /.box-body -->
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control" name="Nome" placeholder="Nome" value="<?php echo $nome ?>">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control" name="DataNascimento" placeholder="Data de Nascimento" value="<?php echo $datanascimento ?>">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control" name="Contacto" placeholder="Contacto" value="<?php echo $contacto ?>">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-info btn-flat pull-right hvr-sweep-to-top" id="bt-info-pessoal">Guardar</button>
+                    </div>
                     </form>
                 </div>
             </div>

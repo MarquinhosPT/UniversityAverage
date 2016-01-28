@@ -3,7 +3,7 @@
 Class Aluno extends CI_Model {
 
     function userjoin($id) {
-        $this->db->select('Aluno.ID, Aluno.Foto, Aluno.NumeroMecanografico, Aluno.Nome, Curso.Descricao AS Curso');
+        $this->db->select('Aluno.ID, Aluno.Foto, Aluno.NumeroMecanografico, Aluno.Email, Aluno.Nome, Aluno.DataNascimento, Aluno.Contacto, Curso.Descricao AS Curso');
         $this->db->from('Aluno');
         $this->db->join('Curso', 'Curso.ID = Aluno.refCurso');
         $this->db->where('Aluno.ID', $id);
@@ -76,7 +76,16 @@ Class Aluno extends CI_Model {
         $this->db->where('ID', $id);
         $this->db->update('Aluno', $data); 
         
-        
     }
 
+    function updateInfo($id) {
+        $data = array(
+            'Nome' => $this->input->post('Nome'),
+            'DataNascimento' => $this->input->post('DataNascimento'),
+            'Contacto' => $this->input->post('Contacto'),
+            'Modificado' => date('Y-m-j H:i:s'),
+        );
+        $this->db->where('ID', $id);
+        $this->db->update('Aluno', $data);
+    }
 }

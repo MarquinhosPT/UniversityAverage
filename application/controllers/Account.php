@@ -98,19 +98,33 @@ class Account extends CI_Controller {
         if ($this->session->userdata('logged_in')) {
             $session_data = $this->session->userdata('logged_in');
             $data['id'] = $session_data['id'];
-            $data['foto'] = $session_data['foto'];
-            $data['numeromecanografico'] = $session_data['numeromecanografico'];
-            $data['nome'] = $session_data['nome'];
 
             $temp = $this->aluno->userjoin($data['id']);
 
             if ($temp) {
                 foreach ($temp as $row) {
+                    $data['foto'] = $row->Foto;
+                    $data['numeromecanografico'] = $row->NumeroMecanografico;
+                    $data['nome'] = $row->Nome;
+                    $data['email'] = $row->Email;
+                    $data['datanascimento'] = $row->DataNascimento;
+                    $data['contacto'] = $row->Contacto;
                     $data['curso'] = $row->Curso;
                 }
             }
 
             $this->load->view('account/profile', $data);
+        } else {
+            //If no session, redirect to login page
+            redirect('Account/login', 'refresh');
+        }
+    }
+
+    function updateProfile() {
+        if ($this->session->userdata('logged_in')) {
+            $session_data = $this->session->userdata('logged_in');
+            $this->aluno->updateInfo($session_data['id']);
+            redirect('Account/profile', 'refresh');
         } else {
             //If no session, redirect to login page
             redirect('Account/login', 'refresh');
